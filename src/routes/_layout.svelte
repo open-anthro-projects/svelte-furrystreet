@@ -2,7 +2,7 @@
 	import Nav from '../components/Nav.svelte';
 	import Appbar from '../components/AppBar.svelte';
 	export let segment: string;
-	let props = { height: "56px", top:"0px", bottom:"auto" };
+	let props = { height: "64px", top:"0px", bottom:"auto", boxShadow:"0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12)" };
 </script>
 
 <style>

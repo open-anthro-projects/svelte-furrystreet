@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { AppBarProps } from "./AppBar";
-  import Row from "./Row.svelte";
-  export let props: AppBarProps;
+  import type { AppBarProps } from './AppBar'
+  import Row from './Row.svelte'
+  export let props: AppBarProps
 </script>
 
 <style>
@@ -14,10 +14,13 @@
     color: white;
     position: fixed;
     z-index: 1200;
+    box-shadow: var(--boxShadow);
   }
 </style>
 
-<header style="--height:{props.height};--top:{props.top};--bottom:{props.bottom}">
+<header
+  style=" --height:{props.height}; --top:{props.top}; --bottom:{props.bottom};
+  --boxShadow:{props.boxShadow}">
   <Row>
     <slot />
   </Row>
