@@ -10,11 +10,12 @@
     top: var(--top);
     bottom: var(--bottom);
     width: 100%;
-    background-color: black;
-    color: white;
+    background-color: var(--main-bg-color, --main-text-color);
+    color: var(--main-text-color);
     position: fixed;
     z-index: 1200;
     box-shadow: var(--boxShadow);
+    transition: all 0.5s;
   }
 </style>
 
