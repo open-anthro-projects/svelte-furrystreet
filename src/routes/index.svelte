@@ -1,4 +1,6 @@
-
+<script>
+	import {theme} from '../components/ThemeStore'
+</script>
 
 <style>
 	h1, figure, p {
@@ -48,3 +50,7 @@
 </figure>
 
 <p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+
+<button on:click={theme.switchTheme}>
+    Clicks are handled by the handleClick function!
+</button>
