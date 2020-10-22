@@ -10,11 +10,6 @@
 		theme.setThemeOnLoad();
 	});
 
-	import { afterUpdate } from 'svelte';
-
-	afterUpdate(() => {
-		document.body.className = $theme;
-	});
 
 	
 </script>
@@ -31,18 +26,9 @@
 		--main-text-color: white;
 	}
 
-	:global(body) {
-  		--main-bg-color: white;
-		--main-text-color: black;
-
-	}
-	:global(.dark){
-		--main-bg-color: black;
-		--main-text-color: white;
-	}
-
 	:global(body){
 		background-color: var(--main-bg-color);
+		transition: all 0.5s;
 	}
 	main {
 		position: relative;
@@ -60,6 +46,17 @@
 		margin-left: auto;
 	}
 </style>
+
+<svelte:head>
+	<script>
+	(function() {
+	  let theme = localStorage.getItem('nekomata-ui-theme')
+	  if (theme) {
+        document.documentElement.setAttribute('data-theme', theme)
+	  }
+	})()
+	</script>
+</svelte:head>
 
 <!--<svelte:window on:load={theme.setThemeOnLoad}/> -->
 <AppBar props={props}><nav>

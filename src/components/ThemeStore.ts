@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 
-function createTheme() {
-    const { subscribe, set, update } = writable("dark");
+function setTheme() {
+    const { subscribe, set, update } = writable("light");
 
     const key = "nekomata-ui-theme"
 
@@ -21,11 +21,20 @@ function createTheme() {
             })
         },
         setThemeOnLoad: () => {
-            let theme  = window.localStorage.getItem(key) || 'light';
-            document.documentElement.setAttribute('data-theme', theme)
-            set(theme)
+            let theme  = window.localStorage.getItem(key);
+            if (theme) {
+                set(theme)
+            }
         }
     };
 }
 
-export const theme = createTheme();
+export const theme = setTheme();
+
+//window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+//const userPrefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+
+//if(userPrefersDark){
+//    console.log("User prefers a dark interface");
+//}
