@@ -11,6 +11,7 @@
 	});
 
 
+
 	
 </script>
 
@@ -49,12 +50,15 @@
 
 <svelte:head>
 	<script>
-	(function() {
-	  let theme = localStorage.getItem('nekomata-ui-theme')
-	  if (theme) {
-        document.documentElement.setAttribute('data-theme', theme)
-	  }
-	})()
+		(function() {
+		let theme = localStorage.getItem("nekomata-ui-theme")
+		if (theme === "dark" || theme === "light" ) {
+			document.documentElement.setAttribute('data-theme', theme)
+		} else {
+			theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light"
+			document.documentElement.setAttribute('data-theme', theme)
+		} 
+		})()
 	</script>
 </svelte:head>
 
@@ -69,7 +73,7 @@
 	
 </nav><section>Let's test this</section> <section class="test">Let's test this</section>
 
-<button on:click={theme.switchTheme}>
+<button on:click={() => theme.switchTheme()}>
     Clicks are handled by the handleClick function!
 </button>
 </AppBar>
