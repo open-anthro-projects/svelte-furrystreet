@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { AppBarProps } from './AppBar'
-  import Row from './Row.svelte'
   export let props: AppBarProps
 </script>
 
@@ -12,10 +11,10 @@
     flex-shrink: 0;
     position: fixed;
     z-index: 1200;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: var(--top, initial);
+    left: initial;
+    right: initial;
+    bottom: var(--bottom, initial);
     height: var(--height);
     background-color: var(--main-bg-color, --main-text-color);
     color: var(--main-text-color);
