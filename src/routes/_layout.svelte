@@ -1,13 +1,13 @@
 <script lang="ts">
 	import Nav from '../components/Nav.svelte';
 	import AppBar from '../components/AppBar.svelte';
-	import {theme} from '../components/ThemeStore'
+	import {ThemeStore} from 'nekomata-ui'
 	import { onMount } from 'svelte';
 	export let segment: string;
 	let props = { height: "64px", top:"0px", bottom:"auto", boxShadow:"0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12)" };
 
 	onMount(() => {
-		theme.setThemeOnLoad();
+		ThemeStore.Theme.setThemeOnLoad();
 	});
 
 
@@ -73,7 +73,7 @@
 	
 </nav><section>Let's test this</section> <section class="test">Let's test this</section>
 
-<button on:click={() => theme.switchTheme()}>
+<button on:click={() => ThemeStore.Theme.switchTheme()}>
     Clicks are handled by the handleClick function!
 </button>
 </AppBar>
