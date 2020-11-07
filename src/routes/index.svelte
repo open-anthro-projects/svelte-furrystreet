@@ -1,5 +1,6 @@
 <script>
 	import {theme} from '../components/ThemeStore'
+	//import {themeStore} from "nekomata-ui"
 </script>
 
 <style>
