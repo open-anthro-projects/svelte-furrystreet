@@ -1,10 +1,9 @@
 <script lang="ts">
-	import Nav from '../components/Nav.svelte';
 	import AppBar from '../components/AppBar.svelte';
-	import {themeStore} from 'nekomata-ui'
+	import { themeStore } from 'nekomata-ui'
 	import { onMount } from 'svelte';
 	export let segment: string;
-	let props = { height: "64px", top:"initial", bottom:"0px", boxShadow:"0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12)" };
+	let props = { top:"0px", boxShadow:"0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12)", left: "40px", position:"fixed"};
 
 	onMount(() => {
 		themeStore.theme.setThemeOnLoad();
@@ -39,6 +38,7 @@
 		padding: 2em;
 		margin: 0 auto;
 		box-sizing: border-box;
+		
 	}
 	section {
 		height: inherit;
@@ -63,7 +63,7 @@
 </svelte:head>
 
 <!--<svelte:window on:load={theme.setThemeOnLoad}/> -->
-<AppBar props={props}><div style="display:flex"><nav>
+<AppBar props={props}><div style="display:flex; min-height:64px;"><nav>
 	<a aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a>
 		<a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a>
 
