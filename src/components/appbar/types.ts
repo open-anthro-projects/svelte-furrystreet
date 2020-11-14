@@ -4,7 +4,7 @@ export interface AppBarProps {
     boxSizing?: string;
     width?: string;
     flexShrink?: string;
-    position: string;
+    position?: string;
     zIndex?: number;
     top?: string;
     left?: string;
@@ -16,10 +16,5 @@ export interface AppBarProps {
     transition?: string;
 }
 
-export function buildCSSStyleString(appBarProps:AppBarProps){
-    let styleString = ""; 
-    for (const key in appBarProps) {
-        styleString = styleString + "--appbar-"+ `${key}`+ ": " + `${appBarProps[key]};` + " " 
-    }
-    return styleString;
-}
+
+  
