@@ -1,7 +1,8 @@
 <script lang="ts">
-  import type { AppBarProps, } from './types'
+  import type { AppBarProps } from './types'
   import { buildCSSStyleString } from './functions'
   export let props: AppBarProps
+  let cssStyleString = buildCSSStyleString(props);
 </script>
 
 <style>
@@ -30,6 +31,12 @@
   }
 </style>
 
-<header class="style position" style="{buildCSSStyleString(props)}">
-  <slot />
-</header>
+{#if cssStyleString == ""}
+  <header class="style position">
+    <slot />
+  </header>
+{:else}
+  <header class="style position" style="{cssStyleString}">
+    <slot />
+  </header>
+{/if}
