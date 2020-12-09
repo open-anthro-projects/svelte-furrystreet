@@ -32,11 +32,11 @@
 </style>
 
 {#if cssStyleString == ""}
-  <header class="style position">
+  <header class="{$$restProps.class || ''} style position">
     <slot />
   </header>
 {:else}
-  <header class="style position" style="{cssStyleString}">
+  <header class="{$$restProps.class || ''} style position" style="{cssStyleString}">
     <slot />
   </header>
 {/if}

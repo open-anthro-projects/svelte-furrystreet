@@ -1,6 +1,7 @@
 <script lang="ts">
 	//import AppBar from '../components/appbar/AppBar.svelte'
-	import { themeStore, AppBar} from 'nekomata-ui'
+	import { themeStore} from 'nekomata-ui'
+	import AppBar from '../components/appbar/AppBar.svelte'
 	import { onMount } from 'svelte';
 	export let segment: string;
 
@@ -50,6 +51,10 @@
 	.test{
 		margin-left: auto;
 	}
+
+	.appbar :global(.top) {
+		--appbar-backgroundColor: purple;
+	}
 </style>
 
 <svelte:head>
@@ -67,7 +72,8 @@
 </svelte:head>
 
 <!--<svelte:window on:load={theme.setThemeOnLoad}/> -->
-<AppBar props={{boxShadow: "5px 10px" }}><div style="display:flex; min-height:64px;"><nav>
+<div class="appbar">
+<AppBar props={{boxShadow: "5px 10px" }} class="top" ><div style="display:flex; min-height:64px;"><nav>
 	<a aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a>
 		<a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a>
 
@@ -82,6 +88,7 @@
 </button>
 </div>
 </AppBar>
+</div>
 
 <!--<Nav {segment}/> -->
 
