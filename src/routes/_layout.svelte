@@ -1,7 +1,7 @@
 <script lang="ts">
 	//import AppBar from '../components/appbar/AppBar.svelte'
-	import { themeStore} from 'nekomata-ui'
-	import AppBar from '../components/appbar/AppBar.svelte'
+	import { themeStore, AppBar } from 'nekomata-ui'
+	//import AppBar from '../components/appbar/AppBar.svelte'
 	import { onMount } from 'svelte';
 	export let segment: string;
 
