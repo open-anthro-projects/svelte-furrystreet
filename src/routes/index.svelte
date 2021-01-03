@@ -1,5 +1,4 @@
 <script>
-	import {theme} from '../components/ThemeStore'
 	//import {themeStore} from "nekomata-ui"
 </script>
 
@@ -51,7 +50,3 @@
 </figure>
 
 <p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
-
-<button on:click={theme.switchTheme}>
-    Clicks are handled by the handleClick function!
-</button>

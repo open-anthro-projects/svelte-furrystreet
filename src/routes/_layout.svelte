@@ -1,7 +1,8 @@
 <script lang="ts">
 	//import AppBar from '../components/appbar/AppBar.svelte'
-	import { themeStore} from 'nekomata-ui'
-	import AppBar from '../components/appbar/AppBar.svelte'
+	import { themeStore, AppBar, Row} from 'nekomata-ui'
+	//import Row from '../components/Row.svelte'
+	//import AppBar from '../components/appbar/AppBar.svelte'
 	import { onMount } from 'svelte';
 	export let segment: string;
 
@@ -17,7 +18,7 @@
 <style>
 
 	:global(html[data-theme='light']) {
-  		--main-bg-color: white;
+  		--main-bg-color: yellow;
 		--main-text-color: black;
 		--appbar-backgroundColor: var(--main-bg-color);
 		--appbar-color: var(--main-text-color);
@@ -53,7 +54,7 @@
 	}
 
 	.appbar :global(.top) {
-		--appbar-backgroundColor: purple;
+		--appbar-backgroundColor: Orange;
 	}
 </style>
 
@@ -73,7 +74,7 @@
 
 <!--<svelte:window on:load={theme.setThemeOnLoad}/> -->
 <div class="appbar">
-<AppBar props={{boxShadow: "5px 10px" }} class="top" ><div style="display:flex; min-height:64px;"><nav>
+<AppBar props={{boxShadow: "5px 10px" }} class="top" ><Row props={{}} ><nav>
 	<a aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a>
 		<a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a>
 
@@ -86,7 +87,7 @@
 <button on:click={() => themeStore.theme.switchTheme()}>
     Clicks are handled by the handleClick function!
 </button>
-</div>
+</Row>
 </AppBar>
 </div>
 
