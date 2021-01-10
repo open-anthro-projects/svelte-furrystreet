@@ -34,6 +34,15 @@
 			font-size: 4em;
 		}
 	}
+
+	.container {
+  		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+	}
+	.item {
+  		grid-column-start: 1;
+  		grid-column-end: 13;
+	}
 </style>
 
 
@@ -42,6 +51,9 @@
 	<title>Sapper project template</title>
 </svelte:head>
 
+<div class="container">
+
+	<div class="item">
 <h1>Great success!</h1>
 
 <figure>
@@ -50,3 +62,39 @@
 </figure>
 
 <p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+</div>
+
+<div class="item">
+	<h1>Great success!</h1>
+	
+	<figure>
+		<img alt='Success Kid' src='successkid.jpg'>
+		<figcaption>Have fun with Sapper!</figcaption>
+	</figure>
+	
+	<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+	</div>
+
+	<div class="item">
+<h1>Great success!</h1>
+
+<figure>
+	<img alt='Success Kid' src='successkid.jpg'>
+	<figcaption>Have fun with Sapper!</figcaption>
+</figure>
+
+<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+</div>
+
+
+<div class="item">
+	<h1>Great success!</h1>
+	
+	<figure>
+		<img alt='Success Kid' src='successkid.jpg'>
+		<figcaption>Have fun with Sapper!</figcaption>
+	</figure>
+	
+	<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+	</div>
+</div>

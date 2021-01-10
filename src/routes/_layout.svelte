@@ -36,15 +36,9 @@
 		background-color: var(--main-bg-color);
 		transition: all 0.5s;
 	}
-	main {
-		position: relative;
-		max-width: 56em;
+	.content {
 		background-color: var(--main-bg-color);
 		color: var(--main-text-color);
-		padding: 2em;
-		margin: 0 auto;
-		box-sizing: border-box;
-		
 	}
 	section {
 		height: inherit;
@@ -55,6 +49,7 @@
 
 	.appbar :global(.top) {
 		--appbar-backgroundColor: Orange;
+		--appbar-position: fixed;
 	}
 </style>
 
@@ -94,6 +89,7 @@
 <!--<Nav {segment}/> -->
 
 
-<main>
+<div class="content">
+	<Row props={{}}/>
 	<slot></slot>
-</main>
+</div>
