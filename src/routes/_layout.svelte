@@ -36,10 +36,7 @@
 		background-color: var(--main-bg-color);
 		transition: all 0.5s;
 	}
-	.content {
-		background-color: var(--main-bg-color);
-		color: var(--main-text-color);
-	}
+
 	section {
 		height: inherit;
 	}
@@ -89,7 +86,5 @@
 <!--<Nav {segment}/> -->
 
 
-<div class="content">
-	<Row props={{}}/>
 	<slot></slot>
-</div>
+
