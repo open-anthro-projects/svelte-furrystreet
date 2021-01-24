@@ -1,6 +1,7 @@
 <script lang="ts">
 	//import AppBar from '../components/appbar/AppBar.svelte'
 	import { themeStore, AppBar, Row} from 'nekomata-ui'
+	import SvgPathIcon from '../components/SvgPathIcon.svelte'
 	//import Row from '../components/Row.svelte'
 	//import AppBar from '../components/appbar/AppBar.svelte'
 	import { onMount } from 'svelte';
@@ -66,7 +67,7 @@
 
 <!--<svelte:window on:load={theme.setThemeOnLoad}/> -->
 <div class="appbar">
-<AppBar props={{boxShadow: "5px 10px" }} class="top" ><Row props={{}} ><nav>
+<AppBar props={{boxShadow: "5px 10px" }} class="top" ><Row props={{}} ><SvgPathIcon d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></SvgPathIcon><nav>
 	<a aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a>
 		<a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a>
 
@@ -74,7 +75,7 @@
 		     the blog data when we hover over the link or tap it on a touchscreen -->
 		<a rel=prefetch aria-current="{segment === 'blog' ? 'page' : undefined}" href="blog">blog</a>
 	
-</nav><section>Let's test this</section> <section class="test">Let's test this</section>
+</nav><section>Let's test this  </section> <section class="test">Let's test this</section>
 
 <button on:click={() => themeStore.theme.switchTheme()}>
     Clicks are handled by the handleClick function!
