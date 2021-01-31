@@ -6,6 +6,6 @@
     export let height = 24;
 </script>
 
-<svg height={height} width={width} viewBox={viewBox}>
+<svg height={height} width={width} viewBox={viewBox} aria-hidden="true">
     <path fill={fill} d={d} />
 </svg>
