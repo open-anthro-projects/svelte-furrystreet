@@ -10,9 +10,6 @@
 	onMount(() => {
 		themeStore.theme.setThemeOnLoad();
 	});
-
-
-
 	
 </script>
 
