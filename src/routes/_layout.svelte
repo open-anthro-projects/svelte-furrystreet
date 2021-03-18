@@ -4,8 +4,11 @@
 	//import SvgPathIcon from '../components/SvgPathIcon.svelte'
 	//import Row from '../components/Row.svelte'
 	//import AppBar from '../components/appbar/AppBar.svelte'
+	import Drawer from '../components/Drawer.svelte'
 	import { onMount } from 'svelte';
 	export let segment: string;
+
+	let visible = true;
 
 	onMount(() => {
 		themeStore.theme.setThemeOnLoad();
@@ -78,8 +81,13 @@
 <button on:click={() => themeStore.theme.switchTheme()}>
     Clicks are handled by the handleClick function!
 </button>
+<label>
+	<input type="checkbox" bind:checked={visible}>
+	visible
+</label>
 </Row>
 </AppBar>
+<Drawer visible={visible}></Drawer>
 </div>
 
 <!--<Nav {segment}/> -->
