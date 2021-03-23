@@ -1,9 +1,12 @@
 <script lang="ts">
-    import { slide } from 'svelte/transition';
-	export let visible = true;
+	export let active = false;
 </script>
 
 <style>
+    :not(.active){
+        transform: translateX(-100%);
+    }
+
     .drawer{
         top: 0;
         flex: 1 0 auto;
@@ -11,15 +14,17 @@
         display: flex;
         outline: 0;
         z-index: 1099;
-        width: 240px;
         position: fixed;
-        overflow-y: auto;
+        width: 256px;
+        overflow: hidden;
         flex-direction: column;
         -webkit-overflow-scrolling: touch;
         background-color: #fff;
+        transition-duration: 0.5s;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
+        transition-property: transform, visibility, width;
     }
 </style>
 
-{#if visible}
-    <aside transition:slide class="drawer" style=""><slot/></aside>
-{/if}
+<aside class="drawer" class:active style=""><slot/></aside>

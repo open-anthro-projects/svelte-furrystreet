@@ -87,7 +87,7 @@
 </label>
 </Row>
 </AppBar>
-<Drawer visible={visible}></Drawer>
+<Drawer active={visible}>test</Drawer>
 </div>
 
 <!--<Nav {segment}/> -->
