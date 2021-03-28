@@ -12,6 +12,7 @@
 
 	onMount(() => {
 		themeStore.theme.setThemeOnLoad();
+		document.body.className = "noscroll";
 	});
 	
 </script>
@@ -38,6 +39,11 @@
 		transition: all 0.5s;
 	}
 
+	:global(body.noscroll){
+		padding-right: 17px; 
+		overflow: hidden;
+	}
+
 	section {
 		height: inherit;
 	}
@@ -48,6 +54,20 @@
 	.appbar :global(.top) {
 		--appbar-backgroundColor: Orange;
 		--appbar-position: fixed;
+	}
+
+	.backdrop{
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: flex;
+		z-index: 1100;
+		position: fixed;
+		align-items: center;
+		justify-content: center;
+		background-color: rgba(0, 0, 0, 0.5);
+		-webkit-tap-highlight-color: transparent;
 	}
 </style>
 
@@ -87,6 +107,7 @@
 </label>
 </Row>
 </AppBar>
+<div class="backdrop"></div>
 <Drawer active={visible}>test</Drawer>
 </div>
 

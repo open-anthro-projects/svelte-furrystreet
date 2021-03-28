@@ -13,10 +13,10 @@
         height: 100%;
         display: flex;
         outline: 0;
-        z-index: 1099;
+        z-index: 1200;
         position: fixed;
         width: 256px;
-        overflow: hidden;
+        overflow-y: auto;
         flex-direction: column;
         -webkit-overflow-scrolling: touch;
         background-color: #fff;
