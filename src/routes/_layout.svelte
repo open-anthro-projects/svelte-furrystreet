@@ -8,11 +8,10 @@
 	import { onMount } from 'svelte';
 	export let segment: string;
 
-	let visible = true;
+	let visible = false;
 
 	onMount(() => {
 		themeStore.theme.setThemeOnLoad();
-		document.body.className = "noscroll";
 	});
 	
 </script>
@@ -107,8 +106,11 @@
 </label>
 </Row>
 </AppBar>
-<div class="backdrop"></div>
-<Drawer active={visible}>test</Drawer>
+<div on:click={() => themeStore.theme.switchTheme()} class="backdrop"></div>
+<Drawer active={visible}><button on:click={() => themeStore.theme.switchTheme()}>
+    Clicks are handled by the handleClick function!
+</button></Drawer>
+
 </div>
 
 <!--<Nav {segment}/> -->
