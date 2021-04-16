@@ -58,8 +58,8 @@
 	.backdrop{
 		top: 0;
 		left: 0;
-		right: 0;
-		bottom: 0;
+		width: 100%;
+		height: 100%;
 		display: flex;
 		z-index: 1100;
 		position: fixed;
@@ -106,13 +106,13 @@
 </label>
 </Row>
 </AppBar>
-<div on:click={() => themeStore.theme.switchTheme()} class="backdrop"></div>
+<!-- <div on:click={() => themeStore.theme.switchTheme()} class="backdrop"></div>-->
+
+
+</div>
 <Drawer active={visible}><button on:click={() => themeStore.theme.switchTheme()}>
     Clicks are handled by the handleClick function!
 </button></Drawer>
-
-</div>
-
 <!--<Nav {segment}/> -->
 
 
