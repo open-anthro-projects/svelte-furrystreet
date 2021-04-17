@@ -1,5 +1,11 @@
 <script lang="ts">
 	export let active = false;
+
+    const testje = {
+        modal: true,
+    }
+
+    $: style = "--test:-100%,0";
 </script>
 
 <style>
@@ -15,6 +21,10 @@
         bottom: auto;
     }
 
+    .modal{
+
+    }
+    
 
     .drawer{
         flex: 1 0 auto;
@@ -47,4 +57,4 @@
     }
 </style>
 
-<aside class="drawer position" class:active style="--test:-100%,0"><slot/></aside>
+<aside class="drawer position" class:active class:modal = {testje.modal} style={style}><slot/></aside>
