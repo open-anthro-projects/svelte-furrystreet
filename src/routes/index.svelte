@@ -62,7 +62,7 @@
 
 	@media (min-width: 600px){
 
-		.content {
+		.grid {
 			--grid-container-gridTemplateAreas:
 		'a a a a a a a a b b b b' 'c c c c c c c c b b b b';
 		padding: 64px 0px 0px 0px;
@@ -97,8 +97,8 @@
 	<title>Sapper project template</title>
 </svelte:head>
 
-<div class="content">
-<GridContainer props={{}}>
+<div class="grid">
+<GridContainer props={{style:"flex-grow: 1"}}>
 
 	<div class="item">
 <h1>Great success!</h1>

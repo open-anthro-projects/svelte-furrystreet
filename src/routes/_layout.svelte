@@ -84,9 +84,17 @@
 </svelte:head>
 
 <!--<svelte:window on:load={theme.setThemeOnLoad}/> -->
+<div style="display:flex;">
+	<Drawer active={visible} variant={"temporary"}><button on:click={() => themeStore.theme.switchTheme()}>
+		Clicks are handled by the handleClick function!
+	</button></Drawer>
 <div class="appbar">
 <AppBar props={{boxShadow: "0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)" }} class="top" ><Row props={{}} >
-	<SvgIcon props={{}} d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></SvgIcon><nav>
+	<SvgIcon props={{}} d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></SvgIcon>
+	<label>
+		<input type="checkbox" bind:checked={visible}>
+		visible
+	</label><nav>
 	<a aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a>
 		<a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a>
 
@@ -109,11 +117,11 @@
 
 
 </div>
-<Drawer active={visible}><button on:click={() => themeStore.theme.switchTheme()}>
-    Clicks are handled by the handleClick function!
-</button></Drawer>
+
+
 <!--<Nav {segment}/> -->
 
 
 	<slot></slot>
+</div>
 

@@ -1,5 +1,7 @@
 <script lang="ts">
 	export let active = false;
+    export let variant: "temporary" | "persistent" = "temporary";
+    export let anchor: "left" | "right" | "top" | "bottom" = "left";
 
     const testje = {
         modal: true,
@@ -11,7 +13,11 @@
 <style>
 
     :not(.active){
-        transform: translate(var(--test));
+        transform: translate(-100%,0);
+    }
+
+    .left{
+        left: 0;
     }
 
     .position{
@@ -54,7 +60,9 @@
         z-index: 3;
         transition: transform 0.2s ease;
         overflow: auto;
+        max-width: calc(100% - 256px);
+    min-width: calc(100% - 256px);
     }
 </style>
 
-<aside class="drawer position" class:active class:modal = {testje.modal} style={style}><slot/></aside>
+<aside class="drawer position" class:left = {anchor === 'left'} class:active class:modal = {variant === 'temporary'} style={style}><slot/></aside>
