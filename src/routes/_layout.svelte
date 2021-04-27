@@ -85,7 +85,7 @@
 
 <!--<svelte:window on:load={theme.setThemeOnLoad}/> -->
 <div style="display:flex;">
-	<Drawer active={visible} variant={"temporary"}><button on:click={() => themeStore.theme.switchTheme()}>
+	<Drawer active={visible} variant="modal" anchor="bottom"><button on:click={() => themeStore.theme.switchTheme()}>
 		Clicks are handled by the handleClick function!
 	</button></Drawer>
 <div class="appbar">
