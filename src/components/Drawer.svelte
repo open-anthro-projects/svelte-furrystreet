@@ -1,46 +1,59 @@
 <script lang="ts">
 	export let active = false;
-    export let variant: "temporary" | "persistent" = "temporary";
+    export let variant: "modal" | "persistent" = "modal";
     export let anchor: "left" | "right" | "top" | "bottom" = "left";
     export let id: string = null;
 
-    const testje = {
-        modal: true,
-    }
-
-    $: style = "";
 </script>
 
 <style>
 
-    :not(.active){
+    .left{
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 256px;
         transform: translate(-100%,0);
     }
 
-    .left{
-        left: 0;
+    
+    .right{
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 256px;
+        transform: translate(100%,0);
     }
 
-    .position{
+    .top{
         left: 0;
-        right: auto;
-        top: auto;
-        bottom: auto;
+        top: 0;
+        right: 0;
+        height: 256px;
+        transform: translate(0,-100%);
     }
 
-    .modal{
+    .bottom{
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 256px;
+        transform: translate(0,100%);
+    }
 
+    .active{
+        transform: translate(0,0);
     }
     
-
-    .drawer{
-        flex: var(--test);
-        height: 100%;
-        display: flex;
-        outline: 0;
+    .modal{
         z-index: 1200;
         position: fixed;
-        width: 256px;
+    }
+
+    .drawer{
+        flex: 1 0 auto;
+        display: flex;
+        outline: 0;
         overflow: auto;
         flex-direction: column;
         -webkit-overflow-scrolling: touch;
@@ -51,19 +64,14 @@
         transition-property: transform, visibility, width;
     }
 
-    
-
-    .drawer2{
-        position: fixed;
-        width: 256px;
-        height: 100%;
-        background: white;
-        z-index: 3;
-        transition: transform 0.2s ease;
-        overflow: auto;
-        max-width: calc(100% - 256px);
-    min-width: calc(100% - 256px);
-    }
 </style>
 
-<aside {id} class="drawer position" class:left = {anchor === 'left'} class:active class:modal = {variant === 'temporary'} style={style}><slot/></aside>
+<aside class="drawer" 
+    class:left = {anchor === 'left'}
+    class:right = {anchor === 'right'}
+    class:top = {anchor === 'top'}  
+    class:bottom = {anchor === 'bottom'}     
+    class:active class:modal = 
+    {variant === 'modal'}>
+        <slot/>
+</aside>

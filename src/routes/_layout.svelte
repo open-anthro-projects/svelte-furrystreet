@@ -98,11 +98,8 @@
 </svelte:head>
 
 <!--<svelte:window on:load={theme.setThemeOnLoad}/> -->
-<div class="testje "style="display:flex;--test: 1 1 auto;">
-	<Drawer id="drawer" active={visible} variant={"temporary"} {...test}><button on:click={() => themeStore.theme.switchTheme()}>
-		Clicks are handled by the handleClick function!
-	</button></Drawer>
-	<Drawer active={visible} variant={"temporary"}><button on:click={() => themeStore.theme.switchTheme()}>
+<div style="display:flex;">
+	<Drawer active={visible} variant="modal" anchor="bottom"><button on:click={() => themeStore.theme.switchTheme()}>
 		Clicks are handled by the handleClick function!
 	</button></Drawer>
 <div class="appbar">
