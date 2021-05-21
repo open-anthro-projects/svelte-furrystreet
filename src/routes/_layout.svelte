@@ -8,6 +8,12 @@
 	import { onMount } from 'svelte';
 	export let segment: string;
 
+	const test = {
+		'--test-1': "X",
+		'--test-2': "Z"
+	};
+
+	let probeersel = '--test-drawer';
 	let visible = false;
 
 	onMount(() => {
@@ -50,8 +56,16 @@
 		margin-left: auto;
 	}
 
+	.testje{
+		--test: 1 1 auto;
+	}
+
 	.appbar :global(.top) {
 		--appbar-backgroundColor: Orange;
+	}
+
+	:global(#drawer){
+		--test: 1 0 auto;
 	}
 
 	.backdrop{
@@ -84,7 +98,10 @@
 </svelte:head>
 
 <!--<svelte:window on:load={theme.setThemeOnLoad}/> -->
-<div style="display:flex;">
+<div class="testje "style="display:flex;--test: 1 1 auto;">
+	<Drawer id="drawer" active={visible} variant={"temporary"} {...test}><button on:click={() => themeStore.theme.switchTheme()}>
+		Clicks are handled by the handleClick function!
+	</button></Drawer>
 	<Drawer active={visible} variant={"temporary"}><button on:click={() => themeStore.theme.switchTheme()}>
 		Clicks are handled by the handleClick function!
 	</button></Drawer>

@@ -2,12 +2,13 @@
 	export let active = false;
     export let variant: "temporary" | "persistent" = "temporary";
     export let anchor: "left" | "right" | "top" | "bottom" = "left";
+    export let id: string = null;
 
     const testje = {
         modal: true,
     }
 
-    $: style = "--test:-100%,0";
+    $: style = "";
 </script>
 
 <style>
@@ -33,7 +34,7 @@
     
 
     .drawer{
-        flex: 1 0 auto;
+        flex: var(--test);
         height: 100%;
         display: flex;
         outline: 0;
@@ -65,4 +66,4 @@
     }
 </style>
 
-<aside class="drawer position" class:left = {anchor === 'left'} class:active class:modal = {variant === 'temporary'} style={style}><slot/></aside>
+<aside {id} class="drawer position" class:left = {anchor === 'left'} class:active class:modal = {variant === 'temporary'} style={style}><slot/></aside>
