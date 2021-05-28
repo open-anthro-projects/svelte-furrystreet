@@ -66,7 +66,7 @@
 
 </style>
 
-<aside class="drawer" 
+<aside {id} class="drawer" 
     class:left = {anchor === 'left'}
     class:right = {anchor === 'right'}
     class:top = {anchor === 'top'}  

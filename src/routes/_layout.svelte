@@ -13,6 +13,13 @@
 		'--test-2': "Z"
 	};
 
+	function writeStyleStringFrom(cssProps:Object):string{
+    	return Object.entries(cssProps).reduce((pair, [key, value]) => `${pair} ${key}: ${value}` + ';', '')
+	}
+
+	let style = writeStyleStringFrom(test);
+
+
 	let probeersel = '--test-drawer';
 	let visible = false;
 
@@ -102,7 +109,7 @@
 	<Drawer active={visible} variant="modal" anchor="bottom"><button on:click={() => themeStore.theme.switchTheme()}>
 		Clicks are handled by the handleClick function!
 	</button></Drawer>
-<div class="appbar">
+<div class="appbar" {style}>
 <AppBar props={{boxShadow: "0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)" }} class="top" ><Row props={{}} >
 	<SvgIcon props={{}} d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></SvgIcon>
 	<label>
