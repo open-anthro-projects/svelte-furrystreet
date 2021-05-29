@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onDestroy } from 'svelte';
 	import { themeStore, AppBar, Row, SvgIcon} from 'nekomata-ui'
+	import breakpoint from '../components/BreakpointStore';
 
 	import { onMount } from 'svelte';
 
@@ -16,6 +17,8 @@
 			themeStore.theme.switchTheme();
 		}
 	});
+
+	let bp = breakpoint();
 </script>
 <svelte:head>
 	<title>About</title>
@@ -23,4 +26,4 @@
 
 <h1>About this site</h1>
 
-<p>This is the 'about' page. There's not much here.</p>
+<p>This is the 'about' page. There's not much here. {$bp}</p>

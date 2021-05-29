@@ -1,6 +1,10 @@
 <script lang="ts">
-	//import AppBar from '../components/appbar/AppBar.svelte'
-	import { themeStore, AppBar, Row, SvgIcon} from 'nekomata-ui'
+	import type AppBarCSSProps from '../components/AppBarCSSProps'
+	import AppBar from '../components/AppBar.svelte'
+	import { themeStore, Row, SvgIcon} from 'nekomata-ui'
+	import breakpoint from '../components/BreakpointStore';
+	import {setBreakpoint} from '../components/BreakpointStore';
+	//import {breakpoints, setBreakPointsOnLoad} from '../components/breakpointStore';
 	//import SvgPathIcon from '../components/SvgPathIcon.svelte'
 	//import Row from '../components/Row.svelte'
 	//import AppBar from '../components/appbar/AppBar.svelte'
@@ -10,10 +14,31 @@
 
 	let visible = false;
 
+	let test: AppBarCSSProps = {
+		"--nm-ui-appbar-top": "50px"
+	}
+
+	let style = Object.entries(test).reduce((acc, [key, value]) => `${acc} ${key}: ${value}; `, '');
+
 	onMount(() => {
+		//setBreakPointsOnLoad();
 		themeStore.theme.setThemeOnLoad();
 	});
-	
+
+
+	setBreakpoint(1279,'xl');
+	setBreakpoint(1023,'lg');
+	setBreakpoint(767,'md');
+	setBreakpoint(0,'sm');
+
+
+
+
+
+	let y:number;
+	$:t = y;
+	let bp = breakpoint();
+
 </script>
 
 <style>
@@ -21,16 +46,16 @@
 	:global(html[data-theme='light']) {
   		--main-bg-color: yellow;
 		--main-text-color: black;
-		--appbar-backgroundColor: var(--main-bg-color);
-		--appbar-color: var(--main-text-color);
+		--nm-ui-appbar-background-color: var(--main-bg-color);
+		--nm-ui-appbar-color: var(--main-text-color);
 		
 
 	}
 	:global(html[data-theme='dark']){
 		--main-bg-color: black;
 		--main-text-color: white;
-		--appbar-backgroundColor: var(--main-bg-color);
-		--appbar-color: var(--main-text-color);
+		--nm-ui-appbar-background-color: var(--main-bg-color);
+		--nm-ui-appbar-color: var(--main-text-color);
 	}
 
 	:global(body){
@@ -51,7 +76,11 @@
 	}
 
 	.appbar :global(.top) {
-		--appbar-backgroundColor: Orange;
+		--nm-ui-appbar-background-color: Orange;
+	}
+
+	.appbar{
+		--nm-ui-appbar-color: white;
 	}
 
 	.backdrop{
@@ -83,13 +112,15 @@
 	</script>
 </svelte:head>
 
+<svelte:window bind:innerWidth={y}/>
+
 <!--<svelte:window on:load={theme.setThemeOnLoad}/> -->
 <div style="display:flex;">
 	<Drawer active={visible} variant="modal" anchor="bottom"><button on:click={() => themeStore.theme.switchTheme()}>
 		Clicks are handled by the handleClick function!
 	</button></Drawer>
-<div class="appbar">
-<AppBar props={{boxShadow: "0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)" }} class="top" ><Row props={{}} >
+<div class="appbar" style="display: contents;">
+<AppBar class="top"><Row props={{}} >
 	<SvgIcon props={{}} d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></SvgIcon>
 	<label>
 		<input type="checkbox" bind:checked={visible}>
@@ -103,6 +134,7 @@
 		<a rel=prefetch aria-current="{segment === 'blog' ? 'page' : undefined}" href="blog">blog</a>
 	
 </nav><section>Let's test this  </section> <section class="test">Let's test this</section>
+
 
 <button on:click={() => themeStore.theme.switchTheme()}>
     Clicks are handled by the handleClick function!
@@ -121,7 +153,9 @@
 
 <!--<Nav {segment}/> -->
 
-
+{#if $bp === 'md' }
+<div>{y}{$bp}</div>
+{/if}
 	<slot></slot>
 </div>
 

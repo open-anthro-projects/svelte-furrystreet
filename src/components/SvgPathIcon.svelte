@@ -22,9 +22,9 @@
 
 <style>
     .svgIcon{
-        height: var(--svgIcon-height, 1.5em);
-        width: var(--svgIcon-width, 1.5em);
-        fill: var(--svgIcon-fill, currentColor);
+        height: var(--nm-ui-svgPathIcon-height, 1.5em);
+        width: var(--nm-ui-svgPathIcon-width, 1.5em);
+        fill: var(--nm-ui-svgPathIcon-fill, currentColor);
     }
 </style>
 
