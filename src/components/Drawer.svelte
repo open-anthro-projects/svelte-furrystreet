@@ -2,6 +2,7 @@
 	export let active = false;
     export let variant: "modal" | "persistent" = "modal";
     export let anchor: "left" | "right" | "top" | "bottom" = "left";
+    export let id: string = null;
 
 </script>
 
@@ -65,7 +66,7 @@
 
 </style>
 
-<aside class="drawer" 
+<aside {id} class="drawer" 
     class:left = {anchor === 'left'}
     class:right = {anchor === 'right'}
     class:top = {anchor === 'top'}  

@@ -12,13 +12,26 @@
 	import { onMount } from 'svelte';
 	export let segment: string;
 
+	const test = {
+		'--test-1': "X",
+		'--test-2': "Z"
+	};
+
+	function writeStyleStringFrom(cssProps:Object):string{
+    	return Object.entries(cssProps).reduce((pair, [key, value]) => `${pair} ${key}: ${value}` + ';', '')
+	}
+
+	//let style = writeStyleStringFrom(test);
+
+
+	let probeersel = '--test-drawer';
 	let visible = false;
 
-	let test: AppBarCSSProps = {
+	let test2: AppBarCSSProps = {
 		"--nm-ui-appbar-top": "50px"
 	}
 
-	let style = Object.entries(test).reduce((acc, [key, value]) => `${acc} ${key}: ${value}; `, '');
+	let style = Object.entries(test2).reduce((acc, [key, value]) => `${acc} ${key}: ${value}; `, '');
 
 	onMount(() => {
 		//setBreakPointsOnLoad();
@@ -75,12 +88,20 @@
 		margin-left: auto;
 	}
 
+	.testje{
+		--test: 1 1 auto;
+	}
+
 	.appbar :global(.top) {
 		--nm-ui-appbar-background-color: Orange;
 	}
 
 	.appbar{
 		--nm-ui-appbar-color: white;
+	}
+
+	:global(#drawer){
+		--test: 1 0 auto;
 	}
 
 	.backdrop{
@@ -119,8 +140,8 @@
 	<Drawer active={visible} variant="modal" anchor="bottom"><button on:click={() => themeStore.theme.switchTheme()}>
 		Clicks are handled by the handleClick function!
 	</button></Drawer>
-<div class="appbar" style="display: contents;">
-<AppBar class="top"><Row props={{}} >
+<div class="appbar" {style}>
+<AppBar class="top" ><Row props={{}} >
 	<SvgIcon props={{}} d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></SvgIcon>
 	<label>
 		<input type="checkbox" bind:checked={visible}>
