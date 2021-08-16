@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type AppBarCSSProps from '../components/AppBarCSSProps'
-	import AppBar from '../components/AppBar.svelte'
-	import { themeStore, Row, SvgIcon} from 'nekomata-ui'
+	//import AppBar from '../components/AppBar.svelte'
+	import { AppBar, themeStore, Row, SvgIcon} from 'nekomata-ui'
 	import breakpoint from '../components/BreakpointStore';
 	import {setBreakpoint} from '../components/BreakpointStore';
 	//import {breakpoints, setBreakPointsOnLoad} from '../components/breakpointStore';
@@ -9,6 +9,7 @@
 	//import Row from '../components/Row.svelte'
 	//import AppBar from '../components/appbar/AppBar.svelte'
 	import Drawer from '../components/Drawer.svelte'
+	import Button from '../components/Button.svelte'
 	import { onMount } from 'svelte';
 	export let segment: string;
 
@@ -31,7 +32,7 @@
 		"--nm-ui-appbar-top": "50px"
 	}
 
-	let style = Object.entries(test2).reduce((acc, [key, value]) => `${acc} ${key}: ${value}; `, '');
+	let style = Object.entries(test).reduce((acc, [key, value]) => `${acc} ${key}: ${value}; `, '');
 
 	onMount(() => {
 		//setBreakPointsOnLoad();
@@ -50,7 +51,7 @@
 
 	let y:number;
 	$:t = y;
-	let bp = breakpoint();
+	$:bp = breakpoint();
 
 </script>
 
@@ -136,13 +137,17 @@
 <svelte:window bind:innerWidth={y}/>
 
 <!--<svelte:window on:load={theme.setThemeOnLoad}/> -->
-<div style="display:flex;">
-	<Drawer active={visible} variant="modal" anchor="bottom"><button on:click={() => themeStore.theme.switchTheme()}>
+<div class="appbar" style="display:flex; --nm-ui-svgIcon-height: 24px; --nm-ui-svgIcon-width: 24px;">
+	<Drawer active={visible} variant="modal" anchor="left">	<AppBar class="top" style="--nm-ui-appbar-position: static;" ><Row><Button on:click={() => visible = !visible}>
+		<SvgIcon d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></SvgIcon>
+	</Button></Row></AppBar><button on:click={() => themeStore.theme.switchTheme()}>
 		Clicks are handled by the handleClick function!
 	</button></Drawer>
 <div class="appbar" {style}>
-<AppBar class="top" ><Row props={{}} >
-	<SvgIcon props={{}} d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></SvgIcon>
+<AppBar class="top" ><Row>
+	<Button on:click={() => visible = !visible}>
+		<SvgIcon d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></SvgIcon>
+	</Button>
 	<label>
 		<input type="checkbox" bind:checked={visible}>
 		visible

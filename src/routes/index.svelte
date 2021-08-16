@@ -56,14 +56,12 @@
 	.content {
 		background-color: var(--main-bg-color);
 		color: var(--main-text-color);
-		padding: 56px 0px 0px 0px;
-		
 	}
 
 	@media (min-width: 600px){
 
 		.grid {
-			--grid-container-gridTemplateAreas:
+			--nm-ui-grid-container-grid-template-areas:
 		'a a a a a a a a b b b b' 'c c c c c c c c b b b b';
 		padding: 64px 0px 0px 0px;
 		}
@@ -97,8 +95,8 @@
 	<title>Sapper project template</title>
 </svelte:head>
 
-<div class="grid">
-<GridContainer props={{style:"flex-grow: 1"}}>
+<div class="grid content">
+<GridContainer>
 
 	<div class="item">
 <h1>Great success!</h1>
