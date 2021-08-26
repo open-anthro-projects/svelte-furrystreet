@@ -89,23 +89,23 @@
 		margin-left: auto;
 	}
 
-	.testje{
+/*	.testje{
 		--test: 1 1 auto;
-	}
+	}*/
 
 	.appbar :global(.top) {
 		--nm-ui-appbar-background-color: Orange;
 	}
 
 	.appbar{
-		--nm-ui-appbar-color: white;
+		/*--nm-ui-appbar-color: white; */
 	}
 
 	:global(#drawer){
 		--test: 1 0 auto;
 	}
 
-	.backdrop{
+	/*.backdrop{
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -117,7 +117,7 @@
 		justify-content: center;
 		background-color: rgba(0, 0, 0, 0.5);
 		-webkit-tap-highlight-color: transparent;
-	}
+	}*/
 </style>
 
 <svelte:head>
@@ -137,7 +137,7 @@
 <svelte:window bind:innerWidth={y}/>
 
 <!--<svelte:window on:load={theme.setThemeOnLoad}/> -->
-<div class="appbar" style="display:flex; --nm-ui-svgIcon-height: 24px; --nm-ui-svgIcon-width: 24px;">
+<div class="appbar" style="display:flex; --nm-ui-svgIcon-height: 1.50rem; --nm-ui-svgIcon-width: 1.50rem;">
 	<Drawer active={visible} variant="modal" anchor="left">	<AppBar class="top" style="--nm-ui-appbar-position: static;" ><Row><Button on:click={() => visible = !visible}>
 		<SvgIcon d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></SvgIcon>
 	</Button></Row></AppBar><button on:click={() => themeStore.theme.switchTheme()}>
